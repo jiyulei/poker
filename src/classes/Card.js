@@ -9,5 +9,5 @@ class Card {
   }
 }
 
-const card1 = new Card("spade", "ace");
-card1.getCardInfo();
+export default Card;
+
