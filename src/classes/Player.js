@@ -7,6 +7,16 @@ class Player {
     this.isFolded = false;
   }
 
+  getCard() {
+    
+  }
+
+  roundReset() {
+    this.currentBet = 0;
+    this.hands = [];
+    this.isFolded = false;
+  }
+
   call(previousPlayerBet) {
     const callAmount = previousPlayerBet - this.currentBet; 
 
@@ -35,3 +45,16 @@ class Player {
     this.isFolded = true;
   }
 }
+
+const lei = new Player("lei", 1000);
+lei.bet(30);
+
+console.log(`leilei current bets: ${lei.currentBet}`);
+console.log(`leilei current chips: ${lei.chips}`);
+console.log(`is leilei folded?: ${lei.isFolded};`)
+
+lei.fold();
+
+console.log(`leilei current bets: ${lei.currentBet}`);
+console.log(`leilei current chips: ${lei.chips}`);
+console.log(`is leilei folded?: ${lei.isFolded};`);
