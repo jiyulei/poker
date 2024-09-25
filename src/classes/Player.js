@@ -8,15 +8,18 @@ class Player {
   }
 
   call(previousPlayerBet) {
+    const callAmount = previousPlayerBet - this.currentBet; 
+
     if(previousPlayerBet > this.chips) {
         throw new Error("Not enough chips!");
     }
-    this.currentBet += previousPlayerBet;
-    this.chips -= previousPlayerBet;
+
+    this.currentBet += callAmount;
+    this.chips -= callAmount;
   }
 
   bet(amount) {
-    if (previousPlayerBet > this.chips) {
+    if (amount > this.chips) {
       throw new Error("Not enough chips!");
     }
       this.currentBet += amount;
@@ -24,7 +27,7 @@ class Player {
   }
 
   allIn() {
-    this.currentBet += chips;
+    this.currentBet += this.chips;
     this.chips = 0;
   }
 
