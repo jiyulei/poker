@@ -1,7 +1,9 @@
+import Table from "./components/Tabel";
+
 function App() {
   return (
     <div className="App">
-     hello
+      <Table />
     </div>
   );
 }
