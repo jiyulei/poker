@@ -7,8 +7,8 @@ class Player {
     this.isFolded = false;
   }
 
-  getCard() {
-    
+  receiveCards(cards) {
+    this.hands = cards;
   }
 
   roundReset() {
