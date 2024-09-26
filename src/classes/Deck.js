@@ -54,25 +54,21 @@ class Deck {
   }
 }
 
+export default Deck;
+
 // ---- TEST CASE ----
-const deck = new Deck();
-const player1 = new Player("lei", 1000);
-const player2 = new Player("clm", 1000);
+// const deck = new Deck();
+// const player1 = new Player("lei", 1000);
+// const player2 = new Player("clm", 1000);
 
-player1.receiveCards(deck.deal(2));
-player2.receiveCards(deck.deal(2));
+// player1.receiveCards(deck.deal(2));
+// player2.receiveCards(deck.deal(2));
 
-console.log("player1 in hand--->", player1);
-console.log("player2 in hand--->", player2);
-
-console.log("-----current deck -----");
-console.log("<---deck count--->" , deck.count());
-
-deck.getDeckInfo();
-
-
-
-// const player2 = deck.deal(10);
+// console.log("player1 in hand--->", player1);
 // console.log("player2 in hand--->", player2);
-// console.log("current deck ----->");
+
+// console.log("-----current deck -----");
+// console.log("<---deck count--->" , deck.count());
+
 // deck.getDeckInfo();
+
