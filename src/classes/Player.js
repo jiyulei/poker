@@ -46,15 +46,17 @@ class Player {
   }
 }
 
-const lei = new Player("lei", 1000);
-lei.bet(30);
+export default Player;
 
-console.log(`leilei current bets: ${lei.currentBet}`);
-console.log(`leilei current chips: ${lei.chips}`);
-console.log(`is leilei folded?: ${lei.isFolded};`)
+// const lei = new Player("lei", 1000);
+// lei.bet(30);
 
-lei.fold();
+// console.log(`leilei current bets: ${lei.currentBet}`);
+// console.log(`leilei current chips: ${lei.chips}`);
+// console.log(`is leilei folded?: ${lei.isFolded};`)
 
-console.log(`leilei current bets: ${lei.currentBet}`);
-console.log(`leilei current chips: ${lei.chips}`);
-console.log(`is leilei folded?: ${lei.isFolded};`);
+// lei.fold();
+
+// console.log(`leilei current bets: ${lei.currentBet}`);
+// console.log(`leilei current chips: ${lei.chips}`);
+// console.log(`is leilei folded?: ${lei.isFolded};`);

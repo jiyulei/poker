@@ -1,4 +1,5 @@
 import Card from "./Card.js";
+import Player from "./Player.js"
 
 class Deck {
   constructor() {
@@ -47,16 +48,29 @@ class Deck {
   getDeckInfo() {
     this.cards.forEach((el) => console.log(el));
   }
+
+  count() {
+    return this.cards.length;
+  }
 }
 
-// const deck = new Deck();
+// ---- TEST CASE ----
+const deck = new Deck();
+const player1 = new Player("lei", 1000);
+const player2 = new Player("clm", 1000);
 
-// const player1 = deck.deal(20);
-// console.log("player1 in hand--->", player1);
-// console.log("current deck ----->");
-// deck.getDeckInfo();
+player1.receiveCards(deck.deal(2));
+player2.receiveCards(deck.deal(2));
 
-// deck.initdecks();
+console.log("player1 in hand--->", player1);
+console.log("player2 in hand--->", player2);
+
+console.log("-----current deck -----");
+console.log("<---deck count--->" , deck.count());
+
+deck.getDeckInfo();
+
+
 
 // const player2 = deck.deal(10);
 // console.log("player2 in hand--->", player2);
