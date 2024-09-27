@@ -11,6 +11,7 @@ class Game {
     this.players = players;
     this.communityCards = [];
     this.state = 0; // preflop: 0 , flop: 1, turn: 2, river: 3
+    this.roles = [];
   }
 
   dealHands() {
@@ -19,7 +20,24 @@ class Game {
     });
   }
 
-  placeBet() { 
+  setRoles() {
+    if (this.players.length === 2) {
+      this.roles.push(["BTN/SB", "BB"]);
+    } else {
+      // players > 3
+      this.roles[("BTN", "SB", "BB")];
+
+      for (let i = 0; i < playerNumber - 3; i++) {
+        this.roles.push([`UTG+${i}`]);
+      }
+    }
+  }
+
+  rotateRoles() {
+    this.roles.push(this.roles.shift());
+  }
+
+  placeBet() {
     // TODO: each players should place bet, then state++
     this.state += 1;
   }
@@ -28,6 +46,7 @@ class Game {
     this.deck.shuffle();
     this.dealHands();
   }
+
 
   dealCommunityCards() {
     if (this.state === 1) {
