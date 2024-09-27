@@ -19,22 +19,26 @@ class Game {
       player.receiveCards(this.deck.deal(2));
     });
   }
-
+  // Set roles array based on players number
   setRoles() {
     if (this.players.length === 2) {
-      this.roles.push(["BTN/SB", "BB"]);
+      this.roles = ["BTN/SB", "BB"];
     } else {
       // players > 3
-      this.roles[("BTN", "SB", "BB")];
+      this.roles = ["BTN", "SB", "BB"];
 
       for (let i = 0; i < playerNumber - 3; i++) {
-        this.roles.push([`UTG+${i}`]);
+        this.roles.push(`UTG+${i}`);
       }
     }
   }
-
+  // 
   rotateRoles() {
     this.roles.push(this.roles.shift());
+  }
+
+  assignRoles() {
+
   }
 
   placeBet() {
