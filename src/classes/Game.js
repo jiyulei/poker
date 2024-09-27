@@ -34,7 +34,7 @@ class Game {
   }
   // 
   rotateRoles() {
-    this.roles.push(this.roles.shift());
+    this.roles.unshift(this.roles.pop());
   }
 
   assignRoles() {
