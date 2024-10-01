@@ -23,14 +23,17 @@ class Game {
   // Set roles array based on players number
   #setRoles() {
     if (this.players.length === 2) {
-      this.roles = ["BTN/SB", "BB"];
+      this.roles = [{ "BTN/SB": 0 }, { BB: 1 }];
     } else {
       // players > 3
-      this.roles = ["BTN", "SB", "BB"];
+      this.roles = [{ SB: 0 }, { BB: 1 }];
 
-      for (let i = 0; i < this.players.length - 3; i++) {
-        this.roles.push(`UTG+${i}`);
+      for (let i = 2; i < this.players.length - 1; i++) {
+        const key = `UTG+${i}`;
+        this.roles.push({ [key]: i });
       }
+
+      this.roles.push({ BTN: this.players.length - 1 });
     }
   }
 
@@ -41,7 +44,9 @@ class Game {
 
   #assignRoles() {
     this.players.forEach((player, index) => {
-      player.role = this.roles[index];
+      player.currentGameRole = Object.keys(this.roles[index])[0];
+
+      player.currentGamePosition = Object.values(this.roles[index])[0];
     });
   }
 
@@ -64,7 +69,7 @@ class Game {
     this.pot = 0;
     this.communityCards = [];
     this.state = 0;
-  
+
     this.#rotateRoles();
     this.#assignRoles();
   }
@@ -92,19 +97,32 @@ const player4 = new Player("yaya", 1000);
 const players = [player1, player2, player3, player4];
 
 const game = new Game(4, 5, 10, players);
-// console.log("game: ", game);
 game.startGame();
+console.log("--------role2------- ", game.roles);
+
 console.log(player1.name + "'s hand: ", player1.hands);
-console.log("Position: " + player1.role);
+console.log(
+  "Role: " + player1.currentGameRole,
+  "Position: " + player1.currentGamePosition
+);
 
 console.log(player2.name + "'s hand: ", player2.hands);
-console.log("Position: " + player2.role);
+console.log(
+  "Role: " + player2.currentGameRole,
+  "Position: " + player2.currentGamePosition
+);
 
 console.log(player3.name + "'s hand: ", player3.hands);
-console.log("Position: " + player3.role);
+console.log(
+  "Role: " + player3.currentGameRole,
+  "Position: " + player3.currentGamePosition
+);
 
 console.log(player4.name + "'s hand: ", player4.hands);
-console.log("Position: " + player4.role);
+console.log(
+  "Role: " + player4.currentGameRole,
+  "Position: " + player4.currentGamePosition
+);
 
 game.placeBet();
 game.dealCommunityCards();
@@ -115,18 +133,30 @@ console.log("------- common -------", game.communityCards);
 game.placeBet();
 game.dealCommunityCards();
 console.log("------- common -------", game.communityCards);
-
 
 game.newGame();
+console.log("--------role2------- ", game.roles);
 
 console.log(player1.name + "'s hand: ", player1.hands);
-console.log("Position: " + player1.role);
+console.log(
+  "Role: " + player1.currentGameRole,
+  "Position: " + player1.currentGamePosition
+);
 
 console.log(player2.name + "'s hand: ", player2.hands);
-console.log("Position: " + player2.role);
+console.log(
+  "Role: " + player2.currentGameRole,
+  "Position: " + player2.currentGamePosition
+);
 
 console.log(player3.name + "'s hand: ", player3.hands);
-console.log("Position: " + player3.role);
+console.log(
+  "Role: " + player3.currentGameRole,
+  "Position: " + player3.currentGamePosition
+);
 
 console.log(player4.name + "'s hand: ", player4.hands);
-console.log("Position: " + player4.role);
+console.log(
+  "Role: " + player4.currentGameRole,
+  "Position: " + player4.currentGamePosition
+);

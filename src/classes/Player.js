@@ -5,7 +5,8 @@ class Player {
     this.chips = chips;
     this.currentBet = 0;
     this.isFolded = false;
-    this.role = '';
+    this.currentGameRole = '';
+    this.currentGamePosition = null;
   }
 
   receiveCards(cards) {
