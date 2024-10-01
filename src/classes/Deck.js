@@ -1,5 +1,5 @@
-import Card from "./Card.js";
-import Player from "./Player.js"
+const Card = require("./Card.js");
+const Player = require("./Player.js");
 
 class Deck {
   constructor() {
@@ -54,7 +54,7 @@ class Deck {
   }
 }
 
-export default Deck;
+module.exports = Deck;
 
 // ---- TEST CASE ----
 // const deck = new Deck();

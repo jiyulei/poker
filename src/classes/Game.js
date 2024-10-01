@@ -1,5 +1,5 @@
-import Deck from "./Deck.js";
-import Player from "./Player.js";
+const Deck = require("./Deck.js");
+const Player = require("./Player.js");
 
 class Game {
   constructor(maxplayer = 9, smallBlind, bigBlind, players) {

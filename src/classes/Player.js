@@ -48,7 +48,7 @@ class Player {
   }
 }
 
-export default Player;
+module.exports = Player;
 
 // const lei = new Player("lei", 1000);
 // lei.bet(30);

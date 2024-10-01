@@ -1,4 +1,4 @@
-import Table from "./components/Tabel";
+import Table from "./components/Tabel.js";
 
 function App() {
   return (
